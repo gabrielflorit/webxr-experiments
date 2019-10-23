@@ -1,0 +1,23 @@
+{
+  "name": "webxr-experiments",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "three": "^0.109.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabrielflorit/webxr-experiments.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gabrielflorit/webxr-experiments/issues"
+  },
+  "homepage": "https://github.com/gabrielflorit/webxr-experiments#readme"
+}
