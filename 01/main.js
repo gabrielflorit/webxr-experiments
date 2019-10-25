@@ -12,8 +12,7 @@ const scene = new THREE.Scene()
 
 // Create the camera.
 const fov = 75
-const aspect = window.innerWidth / window.innerHeight
-console.log(aspect)
+const aspect = 2
 const near = 0.1
 const far = 5
 const camera = new THREE.PerspectiveCamera(fov, aspect, near, far)
@@ -47,6 +46,17 @@ const cubes = [[0x44aa88, 0], [0x8844aa, -2], [0xaa8844, 2]].map(([color, x]) =>
 const renderer = new THREE.WebGLRenderer({ canvas })
 document.body.appendChild(renderer.domElement)
 
+const resizeRendererToDisplaySize = renderer => {
+  const canvas = renderer.domElement
+  const { width, height, clientWidth, clientHeight } = canvas
+
+  const needResize = clientWidth !== width || clientHeight !== height
+  if (needResize) {
+    renderer.setSize(clientWidth, clientHeight, false)
+  }
+  return needResize
+}
+
 // This helper function calls itself every tick, using rAF.
 const render = milliseconds => {
   const seconds = milliseconds * 0.001
@@ -55,6 +65,12 @@ const render = milliseconds => {
     cube.rotation.x = seconds
     cube.rotation.y = seconds
   })
+
+  if (resizeRendererToDisplaySize(renderer)) {
+    const canvas = renderer.domElement
+    camera.aspect = canvas.clientWidth / canvas.clientHeight
+    camera.updateProjectionMatrix()
+  }
 
   // Render the scene.
   renderer.render(scene, camera)
