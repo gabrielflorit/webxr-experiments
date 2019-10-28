@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "seedrandom": "^3.0.5",
     "three": "^0.109.0"
   },
   "devDependencies": {},
