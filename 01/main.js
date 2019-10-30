@@ -23,7 +23,7 @@ const aspect = 2
 const near = 0.1
 const far = 1000
 const camera = new THREE.PerspectiveCamera(fov, aspect, near, far)
-camera.position.z = 60
+camera.position.z = 40
 
 // Add a light.
 {
@@ -49,7 +49,26 @@ const geometries = [
   new THREE.ConeGeometry(1, 2, 12),
   new THREE.CylinderGeometry(1, 2, 3, 12),
   new THREE.DodecahedronGeometry(1),
-  new THREE.IcosahedronGeometry(1)
+  new THREE.IcosahedronGeometry(1),
+  new THREE.OctahedronGeometry(1),
+  new THREE.PlaneGeometry(1, 2, 12, 12),
+  new THREE.RingGeometry(1, 2, 12),
+  new THREE.SphereGeometry(1, 12, 12),
+  new THREE.TetrahedronGeometry(1),
+  new THREE.TorusGeometry(2, 1, 12, 12),
+  new THREE.TorusKnotGeometry(2, 1 / 4, 12 * 8, 24, 3, 4),
+  new THREE.BoxGeometry(1, 2, 3),
+  new THREE.CircleGeometry(1, 12),
+  new THREE.ConeGeometry(1, 2, 12),
+  new THREE.CylinderGeometry(1, 2, 3, 12),
+  new THREE.DodecahedronGeometry(1),
+  new THREE.IcosahedronGeometry(1),
+  new THREE.OctahedronGeometry(1),
+  new THREE.PlaneGeometry(1, 2, 12, 12),
+  new THREE.RingGeometry(1, 2, 12),
+  new THREE.SphereGeometry(1, 12, 12),
+  new THREE.TetrahedronGeometry(1),
+  new THREE.TorusGeometry(2, 1, 12, 12)
 ]
 
 const padding = 5
