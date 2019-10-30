@@ -2,8 +2,8 @@ import * as THREE from './../node_modules/three/build/three.module.js'
 
 import {
   resizeRendererToDisplaySize,
-  addMeshAtX,
-  addSolidGeometry
+  // addMeshAtX,
+  addGeometryToScene
 } from './utils.js'
 
 const canvas = document.querySelector('canvas')
@@ -23,7 +23,7 @@ const aspect = 2
 const near = 0.1
 const far = 1000
 const camera = new THREE.PerspectiveCamera(fov, aspect, near, far)
-camera.position.z = 40
+camera.position.z = 60
 
 // Add a light.
 {
@@ -38,8 +38,11 @@ camera.position.z = 40
 const renderer = new THREE.WebGLRenderer({ canvas })
 document.body.appendChild(renderer.domElement)
 
+// Create an array of meshes. We need this to stick around
+// so that we can rotate each mesh later.
 const meshes = []
 
+// Create geometries.
 const geometries = [
   new THREE.BoxGeometry(1, 2, 3),
   new THREE.CircleGeometry(1, 12),
@@ -49,16 +52,17 @@ const geometries = [
   new THREE.IcosahedronGeometry(1)
 ]
 
-const spread = 5
+const padding = 5
 
+// Turn the geometries into meshes and add them to our scene.
 geometries.forEach((geometry, i) => {
-  addSolidGeometry({
+  addGeometryToScene({
     geometry,
     x: (i % 5) - 2,
     y: ((i / 5) | 0) - 2,
     scene,
     meshes,
-    spread
+    padding
   })
 })
 
