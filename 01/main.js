@@ -13,6 +13,10 @@ const canvas = document.querySelector('canvas')
 // - camera
 // - renderer, to render the scene with camera
 
+// Create the renderer.
+const renderer = new THREE.WebGLRenderer({ canvas })
+document.body.appendChild(renderer.domElement)
+
 // Create the scene.
 const scene = new THREE.Scene()
 scene.background = new THREE.Color(0xaaaaaa)
@@ -33,10 +37,6 @@ camera.position.z = 40
   light.position.set(-1, 2, 4)
   scene.add(light)
 }
-
-// Create the renderer.
-const renderer = new THREE.WebGLRenderer({ canvas })
-document.body.appendChild(renderer.domElement)
 
 // Create an array of meshes. We need this to stick around
 // so that we can rotate each mesh later.

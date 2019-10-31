@@ -50,7 +50,8 @@ const addGeometryToScene = ({ geometry, scene, x, y, meshes, padding }) => {
 
 export {
   resizeRendererToDisplaySize,
-  addGeometryToScene
+  addGeometryToScene,
+  createRandomlyColoredMaterial
   // addMeshAtX,
   //   addMeshToScene,
 }
