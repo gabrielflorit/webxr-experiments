@@ -1,10 +1,13 @@
 import * as THREE from './../node_modules/three/build/three.module.js'
+import AxisGridHelper from './../js/AxisGridHelper.js'
 
 import {
-  createRandomlyColoredMaterial,
   resizeRendererToDisplaySize,
   addGeometryToScene
 } from './../js/utils.js'
+
+const test = new AxisGridHelper()
+console.log(test)
 
 const canvas = document.querySelector('canvas')
 
@@ -100,13 +103,10 @@ const sphereGeometry = new THREE.SphereBufferGeometry(
 }
 
 objects.forEach((node, i) => {
-  if (i < 6) {
-    const axes = new THREE.AxesHelper()
-    axes.material.depthTest = false
-    axes.renderOrder = 1
-    node.add(axes)
-    console.log(i)
-  }
+  const axes = new THREE.AxesHelper()
+  axes.material.depthTest = false
+  axes.renderOrder = 1
+  node.add(axes)
 })
 
 // This helper function calls itself every tick, using rAF.
