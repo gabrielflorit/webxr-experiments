@@ -51,7 +51,7 @@ objects.push(moonOrbit)
 
 // Create the sphere geometry.
 const radius = 1
-const widthSegments = 12
+const widthSegments = 6
 const heightSegments = 6
 const sphereGeometry = new THREE.SphereBufferGeometry(
   radius,
@@ -99,34 +99,23 @@ const sphereGeometry = new THREE.SphereBufferGeometry(
   scene.add(light)
 }
 
-// const padding = 5
-
-// // Turn the geometries into meshes and add them to our scene.
-// geometries.forEach((geometry, i) => {
-//   addGeometryToScene({
-//     geometry,
-//     x: (i % 5) - 2,
-//     y: ((i / 5) | 0) - 2,
-//     scene,
-//     meshes,
-//     padding
-//   })
-// })
+objects.forEach((node, i) => {
+  if (i < 6) {
+    const axes = new THREE.AxesHelper()
+    axes.material.depthTest = false
+    axes.renderOrder = 1
+    node.add(axes)
+    console.log(i)
+  }
+})
 
 // This helper function calls itself every tick, using rAF.
 const render = milliseconds => {
   const seconds = milliseconds * 0.001
 
   objects.forEach(obj => {
-    obj.rotation.y = seconds
+    obj.rotation.y = seconds / 4
   })
-
-  // camera.position.set(0, seconds, 0)
-
-  // meshes.forEach((mesh, i) => {
-  //   mesh.rotation.x = seconds
-  //   mesh.rotation.y = seconds
-  // })
 
   if (resizeRendererToDisplaySize(renderer)) {
     const canvas = renderer.domElement
